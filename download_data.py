@@ -26,10 +26,10 @@ dst_dir = op.join(this_dir, 'data')
 if not op.isdir(dst_dir):
     os.makedirs(dst_dir)
 
-data_file = 'https://surfdrive.surf.nl/files/index.php/s/Iv5tNOAMZTJ0WiS/download'
+data_file = 'https://surfdrive.surf.nl/files/index.php/s/2iHbWhxFM8D3H8d/download'
 dst_file = op.join(dst_dir, 'data.zip')
 
-if not op.isfile(dst_file):
+if not op.isdir(dst_dir):
     print("Downloading the data ...\n")
     cmd = "curl -o %s %s" % (dst_file, data_file)
     return_code = subprocess.call(cmd, shell=True)
@@ -41,4 +41,4 @@ if not op.isfile(dst_file):
     print(" done!")
     os.remove(dst_file)
 else:
-print("Data is already downloaded and located at %s" % dst_file)
+    print("Data is already downloaded and located at %s/*" % dst_dir)
